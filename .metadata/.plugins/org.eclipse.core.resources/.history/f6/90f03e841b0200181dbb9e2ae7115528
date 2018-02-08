@@ -1,0 +1,18 @@
+package com.greensqa.ctifcarga.test;
+import java.sql.SQLException;
+
+import com.greensqa.ctifcarga.ral.*;
+
+/**
+ * Hello world!
+ *
+ */
+public class App 
+{
+    public static void main( String[] args ) throws SQLException
+    {
+        System.out.println( "Hello World!" );
+        TablaContratoTipoBienLeasingRal EjecutarContratoTipoBienLeasingRal = new TablaContratoTipoBienLeasingRal();
+        EjecutarContratoTipoBienLeasingRal.main(null);
+    }
+}

@@ -1,0 +1,14 @@
+package com.greensqa.ctifcarga.ral;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Arrays;
+import java.util.Collections;
+
+
+public class Catalogos {
+	 List<String> Calificacion = new ArrayList<String>(Arrays.asList("A","B","C","D","E"));
+	 public int getCod_calificacion() {
+			//return Calificacion.get(2);
+		 return Calificacion.size();
+	}
+}

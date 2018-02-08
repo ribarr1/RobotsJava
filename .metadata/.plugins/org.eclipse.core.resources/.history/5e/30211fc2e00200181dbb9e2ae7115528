@@ -1,0 +1,93 @@
+package com.greensqa.ctifcarga.ral;
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.Random;
+import com.greensqa.ctifcarga.ral.dto.*;	
+import com.greensqa.ctifcarga.util.*;	
+
+
+public class TablaMovTransaccionesInternasRal {
+	 public static void main(String[] parametro) throws SQLException {
+
+		 MOV_TRANSACCIONES_INTERNAS  registro = new MOV_TRANSACCIONES_INTERNAS ();
+		 
+		 PreparedStatement pstmt = ConnectionBuilder.buildConnection().prepareStatement("insert into inbox.MOV_TRANSACCIONES_INTERNAS (\r\n" + 
+			"COD_ENTIDAD, COD_LEGADO, ID_TANDA, FEC_CREACION, FECHA_CIERRE_CONTABLE, ID_FILA_ORIGEN_LEGADO,  ESTADO_REGISTRO, "
+			+ "ID_EXPORT, FECHA_EXPORT, USUARIO_CREACION, FEC_ACTUALIZ, USUARIO_ACTUALIZACION\r\n" + 
+			") \r\n" + 
+			"values (?,?,?,?,?,?,?,?,?,?,?,?)");
+		 
+	Catalogos dato = new Catalogos();
+	Random rnd = new Random();
+	Restricciones restriccion = new Restricciones();
+	
+	
+	int i = 1;
+	   while (i <= 10000) {
+		 System.out.println("  "+i);
+		    i++; 	
+		    String entidad = dato.getCod_Entidad();
+		    registro.setCod_entidad(entidad);
+		    registro.setCod_legado(dato.getCod_Legado(entidad));
+		    registro.setId_tanda(String.valueOf(1000 + (rnd.nextInt(9999999 + 1) - 1000)));
+		    registro.setFec_creacion(Date.valueOf("2018-01-16"));
+		    registro.setId_transac_origen(String.valueOf(1000 + (rnd.nextInt(9999999 + 1) - 1000)));
+		    registro.setCod_transac_origen(String.valueOf(1000 + (rnd.nextInt(9999999 + 1) - 1000)));
+		    registro.setCod_legado_fuente(registro.getCod_legado());//verificar si es el mismo 
+		    registro.setConcepto_legado(dato.getCod_TipoConcepto());  //verificar
+		    registro.setCod_transac(1 + (rnd.nextInt(999 + 1) - 1));
+		    registro.setFec_corte_contbl(Date.valueOf("2018-01-16"));
+		    registro.setCod_concepto(String.valueOf(1000 + (rnd.nextInt(9999999 + 1) - 1000)));
+		    registro.setConcepto_alterno(String.valueOf(1000 + (rnd.nextInt(9999999 + 1) - 1000)));
+		    registro.setNum_contrato(String.valueOf(1000 + (rnd.nextInt(9999999 + 1) - 1000)));
+		    registro.setCod_ctro_contbl_1(1000 + (rnd.nextInt(9999999 + 1) - 1000));
+		    registro.setCod_ctro_contbl_2(1000 + (rnd.nextInt(9999999 + 1) - 1000));
+		    registro.setTasa_cmf(1000 + (rnd.nextInt(9999999 + 1) - 1000));
+		    registro.setTasa_cml(1000 + (rnd.nextInt(9999999 + 1) - 1000));
+		    registro.setValor(1000 + (rnd.nextInt(9999999 + 1) - 1000));
+		    registro.setCod_moneda(String.valueOf(dato.Monedas));
+		    registro.setValor_cop(1000 + (rnd.nextInt(9999999 + 1) - 1000));
+		    registro.setValor_usd(registro.getValor_cop()/3000);
+		    registro.setModelo_contrapartida(String.valueOf(1000 + (rnd.nextInt(9999999 + 1) - 1000)));
+		    registro.setCod_tipo_dinamica(String.valueOf(1000 + (rnd.nextInt(99999 + 1) - 1000)));
+		    registro.setCod_estado_transaccion(restriccion.getEstadoTransaccion());
+		    registro.setAfecta_cupo(restriccion.getAfectaCupo());
+		    registro.setCod_balance(1 + (rnd.nextInt(999 + 1) - 1));
+		    registro.setArchivo();
+		    registro.setNumero_producto_relacionado();
+		    registro.setReferencia_tercero();
+		    registro.setCod_conciliacion();
+		    registro.setSub_auxiliar_1();
+		    registro.setSub_auxiliar_2();
+		    registro.setId_fila_origen_legado();
+		    registro.setId_fila_inbox();
+		    registro.setEstado_registro();
+		    registro.setId_export();
+		    registro.setFecha_export();
+		    registro.setUsuario_creacion();
+		    registro.setFec_actualiz();
+		    registro.setUsuario_actualizacion();
+			
+			pstmt.setString(1, registro.getCod_entidad());	
+			pstmt.setString(2, registro.getCod_legado());			
+			pstmt.setString(3, registro.getId_tanda());		
+			pstmt.setDate(4, java.sql.Date.valueOf(java.time.LocalDate.now()));	
+		    pstmt.setDate(5, (Date) registro.getFecha_cierre_contable());
+		    pstmt.setString(6, registro.getId_fila_origen_legado());			
+			pstmt.setString(7, registro.getEstado_registro());			
+			pstmt.setInt(8, registro.getId_export());		
+			pstmt.setDate(9, java.sql.Date.valueOf(java.time.LocalDate.now()));
+			pstmt.setString(10, registro.getUsuario_creacion());			
+			pstmt.setDate(11, (Date) (registro.getFec_actualiz()));			
+			pstmt.setString(12, registro.getUsuario_actualizacion());		 
+			
+			pstmt.executeUpdate();
+		
+	  }
+	   pstmt.close();
+	
+
+}
+}
+

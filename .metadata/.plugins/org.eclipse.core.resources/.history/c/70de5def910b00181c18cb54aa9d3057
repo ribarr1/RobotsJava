@@ -1,0 +1,14 @@
+entidad=0101
+cantidadregistros=3
+rutalinux=/home/ribarra/archivos/
+ClientesEntidades=s
+ClientesCalificaciones=s
+ClientesSituaciones=s
+ContratosCalificaciones=s
+ContratosDatosDinamicos=s
+ContratosDiasMora=s
+Contratos=s
+ContratosReestructurados=s
+ContratoTipoBienLeasing=s
+MovCierreContable=s
+MovTransaccionesInternas=s

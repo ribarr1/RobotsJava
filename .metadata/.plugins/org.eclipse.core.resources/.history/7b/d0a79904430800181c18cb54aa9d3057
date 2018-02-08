@@ -1,0 +1,35 @@
+package com.greensqa.ctifcarga.ral;
+
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.sql.SQLException;
+import com.greensqa.ctifcarga.util.*;
+import com.jcraft.jsch.JSchException;
+
+public class ArchivoControlRal {
+	public static void main(String[] arg ) throws SQLException, IOException, IllegalAccessException, JSchException {
+				
+					String ext, ent;
+					SSHConnector sshConnector = new SSHConnector();
+					String nombrearchivo = arg[1]+arg[2]+"Control.ctr";
+					String result = sshConnector.executeCommand("ls "+arg[5]);
+		            System.out.println(result);
+		            
+		            String arr[] = result.split("\n");
+		            for (int i=0; i <= arr.length;i++) {
+											
+						ext = arr[i].substring(arr[i].length() -3, arr[i].length());
+						ent = arr[i].substring(0,4);
+					System.out.println("ENTIDAD  "+ent);
+						if(ext.equals("dat") && ent.equals(arg[1])) {  
+							
+							
+							System.out.println(arr[i]);
+						}	
+				}
+			   
+	
+}
+}

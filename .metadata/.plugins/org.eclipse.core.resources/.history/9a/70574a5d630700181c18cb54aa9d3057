@@ -1,0 +1,22 @@
+
+public class LlamaSSH {
+	
+	public static void main(String[] parametro) throws Exception {
+		
+		ConexionSSH llamacomando = new ConexionSSH();
+		String resultado;
+		
+		llamacomando.main("ribarra", "", "10.130.9.56", 22, "ls");
+		
+		SSHConnector sshConnector = new SSHConnector();
+        
+        
+        sshConnector.connect(USERNAME, PASSWORD, HOST, PORT);
+        String result = sshConnector.executeCommand("ls -l");
+        sshConnector.disconnect();
+         
+        System.out.println(result);
+		
+	}
+	
+}

@@ -1,0 +1,5 @@
+package com.greensqa.ctifcarga.ral.dto;
+
+public class MAE_CLIENTES_SITUACIONES {
+
+}

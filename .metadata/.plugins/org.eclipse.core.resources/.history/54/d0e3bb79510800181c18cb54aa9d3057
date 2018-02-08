@@ -1,0 +1,50 @@
+import com.jcraft.jsch.JSchException;
+
+import java.io.BufferedInputStream;
+import java.io.IOException;
+
+import org.omg.CORBA.portable.InputStream;
+public class SSHConnection {
+	private static final String USERNAME = "ctif_integracion";
+    private static final String HOST = "10.130.9.56";
+    private static final int PORT = 22;
+    private static final String PASSWORD = "1nt3gr4c10n";
+ 
+    public static void main(String[] args) {
+ 
+        try {
+        	
+     	
+            SSHConnector sshConnector = new SSHConnector();
+             
+             
+            sshConnector.connect(USERNAME, PASSWORD, HOST, PORT);
+           // result = sshConnector.executeCommand("scp /cygdrive/c/Users/CarolinaLeal/eclipse-workspace/01011120180201160054CLC.dat ribarra@10.32.14.198:/home/ribarra/01011120180201160054CLC.dat");
+            String result = sshConnector.executeCommand("ls /home/ribarra");
+            System.out.println(result);
+            String arr[] = result.split("\n");
+            for (int i=0; i <= arr.length;i++) {
+            	
+            	System.out.println(arr[1]);
+            }
+            
+            
+            
+            sshConnector.disconnect();
+             
+            //System.out.println(result);
+        } catch (JSchException ex) {
+            ex.printStackTrace();
+             
+            System.out.println(ex.getMessage());
+        } catch (IllegalAccessException ex) {
+            ex.printStackTrace();
+             
+            System.out.println(ex.getMessage());
+        } catch (IOException ex) {
+            ex.printStackTrace();
+             
+            System.out.println(ex.getMessage());
+        }
+    }
+}

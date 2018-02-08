@@ -1,0 +1,58 @@
+package com.greensqa.ctifcarga.ral;
+
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.sql.Date;
+import java.sql.SQLException;
+import java.util.Random;
+
+import com.greensqa.ctifcarga.ral.dto.MAE_CONTRATOS_CALIFICACIONES;
+import com.greensqa.ctifcarga.ral.dto.MAE_CONTRATO_TIPO_BIEN_LEASING;
+
+public class ArchivoContratosCalificacionesRal {
+	
+	public static void main(String[] parametro) throws SQLException, IOException {
+		String ruta = "C:\\Users\\CarolinaLeal\\eclipse-workspace\\0101120170101131409CBL10.dat";
+		File archivo = new File(ruta);
+		BufferedWriter bw;
+		if(archivo.exists()) {
+			System.out.println(" El archivo ya EXISTE, favor validar");
+			
+		} else {
+			Random rnd = new Random();
+			Catalogos dato = new Catalogos();
+			Restricciones restriccion = new Restricciones();
+			 MAE_CONTRATOS_CALIFICACIONES  registro = new MAE_CONTRATOS_CALIFICACIONES ();
+			registro.setId_tanda(String.valueOf(1000 + (rnd.nextInt(9999999 + 1) - 1000)));
+			   int i = 1;
+			   bw = new BufferedWriter(new FileWriter(archivo));
+			   while (i <= 1000) {
+				 System.out.println("  "+i);
+				    i++; 	
+				    String entidad = dato.getCod_Entidad();
+					registro.setCod_entidad(entidad);
+					registro.setCod_legado(dato.getCod_Legado(entidad));
+				    registro.setFec_creacion(Date.valueOf("2018-01-16"));
+				    registro.setCod_legado_fuente(dato.getCod_Legado(entidad));
+				    registro.setNum_contrato(String.valueOf(1000000 + (rnd.nextInt(9999999 + 1) - 1000000)));
+				    registro.setCod_calif_excepcional(dato.getCod_calificacion());
+				    registro.setFuente_informacion(restriccion.getFuenteInformacion());
+				    registro.setFec_corte_contbl(Date.valueOf("2018-01-16"));
+				    registro.setId_fila_origen_legado(String.valueOf(10 + (rnd.nextInt(99 + 1) - 10)));
+				    registro.setEstado_registro(restriccion.getEstadoRegistro());
+					registro.setId_export(1000 + (rnd.nextInt(9999999 + 1) - 1000));
+					registro.setFecha_export(Date.valueOf("2018-01-16"));
+					registro.setUsuario_creacion("ribarra");
+					registro.setFec_actualiz(Date.valueOf("2018-01-16"));
+					registro.setUsuario_actualizacion("ribarra");
+							
+					bw.write(registro.getCod_entidad()+"||"+registro.getCod_legado()+"||"+registro.getId_tanda()+"||"+registro.getFec_creacion()+"||"+registro.getNum_contrato()+"||"+registro.getCod_tipo_bien()+"||"+registro.getPorcentaje()+"||"+registro.getId_fila_origen_legado()+"||"+registro.getEstado_registro()+"||"+registro.getId_export()+"||"+registro.getFecha_export()+"||"+registro.getUsuario_creacion()+"||"+registro.getFec_actualiz()+"||"+registro.getUsuario_actualizacion());
+		             bw.newLine();
+			   }
+		     bw.close();
+		}
+		}
+
+}

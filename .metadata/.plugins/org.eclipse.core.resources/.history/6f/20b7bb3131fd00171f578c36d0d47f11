@@ -1,0 +1,20 @@
+package com.greensqa.ctifcarga.ral;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Random;
+
+
+public class Catalogos {
+	 Random rnd = new Random();
+	 List<String> Calificacion = new ArrayList<String>(Arrays.asList("A","B","C","D","E"));
+	 List<String> CategoriaValorizacion = new ArrayList<String>(Arrays.asList("A","B","C","D","E"));
+	 
+	 public String getCod_calificacion() {
+		 return Calificacion.get(0 + (rnd.nextInt(Calificacion.size() + 1) - 0));		 
+	}
+	 public String getCod_CategoriaValorizacion() {
+		 return CategoriaValorizacion.get(0 + (rnd.nextInt(Calificacion.size() + 1) - 0));		 
+	}
+}

@@ -1,0 +1,113 @@
+package com.greensqa.ctifcarga.ral;
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.Random;
+import com.greensqa.ctifcarga.ral.dto.*;	
+import com.greensqa.ctifcarga.util.*;	
+
+
+public class TablaClientesEntidadesRal {
+	 public static void main(String[] parametro) throws SQLException {
+
+		 MAE_CLIENTES_ENTIDADES registro = new MAE_CLIENTES_ENTIDADES();
+		 
+		 PreparedStatement pstmt = ConnectionBuilder.buildConnection().prepareStatement("insert into inbox.MAE_CLIENTES_ENTIDADES(COD_ENTIDAD, COD_LEGADO, ID_TANDA, FEC_CREACION, COD_TIPO_IDENT, ID_CLIENTE, DV_IDENT_CLIENTE, PRIMER_NOMBRE_RAZON_SOCIAL, SEGUNDO_NOMBRE, PRIMER_APELLIDO, \r\n" + 
+		 		"SEGUNDO_APELLIDO, COD_TIPO_ID_FIDEICOMITENTE, ID_FIDEICOMITENTE, DV_ID_FIDEICOMITENTE, COD_PAIS_NACIONALIDAD, COD_CIIU, COD_NATURALEZA_JURIDICA, \r\n" + 
+		 		"COD_SEG_COMERCIAL, COD_GRUPO_SECTOR_ECONOMICO, COD_TIPO_EMPLEADO, COD_ESTADO_CLIENTE, COD_DANE, COD_TIPO_ID_REP_LEGAL, ID_REP_LEGAL, DV_ID_REP_LEGAL, \r\n" + 
+		 		"FUENTE_INFORMACION, FEC_INI, ID_FILA_ORIGEN_LEGADO, ESTADO_REGISTRO, ID_EXPORT, FECHA_EXPORT, USUARIO_CREACION, FEC_ACTUALIZ, \r\n" + 
+		 		"USUARIO_ACTUALIZACION)\r\n" + 
+		 		"values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) ");
+		 
+	
+	Random rnd = new Random();
+	registro.setId_tanda(String.valueOf(1000 + (rnd.nextInt(9999999 + 1) - 1000)));
+	
+	int i = 1;
+	   while (i <= 1000) {
+		 System.out.println("  "+i);
+		    i++; 	
+		    String entrada[] = {"0101", "0123", "0102", "0149"};
+			double x = Math.random()*(entrada.length+0);
+			registro.setCod_entidad(entrada[(int) x]);
+			registro.setCod_legado(String.valueOf(100 + (rnd.nextInt(999 + 1) - 100)));
+			registro.setFec_creacion(Date.valueOf("2018-01-16"));	
+			registro.setCod_tipo_ident(1 + (rnd.nextInt(9 + 1) - 1));
+			registro.setId_cliente(String.valueOf(1000 + (rnd.nextInt(9999 + 1) - 1000)));
+			registro.setDv_ident_cliente(1 + (rnd.nextInt(9 + 1) - 1));
+			registro.setPrimer_nombre_razon_social("Marcela");
+			registro.setSegundo_nombre("Carolina");
+			registro.setPrimer_apellido("Lopez");
+			registro.setSegundo_apellido("Perez");
+			registro.setCod_tipo_id_fideicomitente(1 + (rnd.nextInt(9 + 1) - 1));
+			registro.setId_fideicomitente(10000000 + (rnd.nextInt(999999999 + 1) - 100000000));
+			registro.setDv_id_fideicomitente(1 + (rnd.nextInt(9 + 1) - 1));
+			registro.setCod_pais_nacionalidad(String.valueOf(10 + (rnd.nextInt(99 + 1) - 10)));
+			registro.setCod_ciiu(1000 + (rnd.nextInt(9999 + 1) - 1000));
+			registro.setCod_naturaleza_juridica(10 + (rnd.nextInt(99 + 1) - 10));
+			registro.setCod_seg_comercial(String.valueOf(100000 + (rnd.nextInt(999999 + 1) - 100000)));
+			registro.setCod_grupo_sector_economico(10 + (rnd.nextInt(99 + 1) - 10));
+			registro.setCod_tipo_empleado(10 + (rnd.nextInt(99 + 1) - 10));
+			registro.setCod_estado_cliente(1 + (rnd.nextInt(9 + 1) - 1));
+			registro.setCod_dane(String.valueOf(10000 + (rnd.nextInt(99999 + 1) - 10000)));
+			registro.setCod_tipo_id_rep_legal(10 + (rnd.nextInt(99 + 1) - 10));
+			registro.setDv_id_rep_legal(10000000 + (rnd.nextInt(999999999 + 1) - 100000000));
+			registro.setDv_id_rep_legal(1 + (rnd.nextInt(9 + 1) - 1));
+			String entrada2[] = {"CRM","LEGADO","SARC"};
+			x = Math.random()*(entrada2.length+0);
+			registro.setFuente_informacion(entrada2[(int) x]);
+			registro.setFec_ini(Date.valueOf("2018-01-16"));
+			registro
+			registro
+			registro
+			
+			
+		    registro.setUsuario_creacion("ribarra");
+			registro.setId_export(1000 + (rnd.nextInt(9999999 + 1) - 1000));
+			registro.setCod_clase_cartera(String.valueOf(1 + (rnd.nextInt(9 + 1) - 1)));
+			registro.setUsuario_actualizacion("ribarra");
+			registro.setFec_corte_contbl(Date.valueOf("2018-01-16"));
+			
+			registro.setId_fila_origen_legado(String.valueOf(10 + (rnd.nextInt(99 + 1) - 10)));
+			registro.setFecha_export(Date.valueOf("2018-01-16"));
+			
+			registro.setCod_calif_cliente(String.valueOf(1 + (rnd.nextInt(9 + 1) - 1)));
+			String entrada1[] = {"0K","ENTREGADO CORE","ENTREGADO","INACTIVO","INCONSISTENTE","NO VALIDADO"};
+			x = Math.random()*(entrada1.length+0);
+			registro.setEstado_registro(entrada1[(int) x]);
+			
+			registro.setFec_actualiz(Date.valueOf("2018-01-16"));
+			
+					
+			
+				
+		 pstmt.setString(1, registro.getId_tanda());
+		 pstmt.setString(2, registro.getUsuario_creacion());	
+		 pstmt.setInt(3, registro.getId_export());	
+		 pstmt.setString(4, registro.getCod_clase_cartera());
+		 pstmt.setString(5, registro.getCod_entidad());	
+		 pstmt.setString(6, registro.getUsuario_actualizacion());	
+		 //pstmt.setDate(7, java.sql.Date.valueOf(java.time.LocalDate.now()));
+		 pstmt.setDate(7, (Date) (registro.getFec_corte_contbl()));
+		 pstmt.setString(8, registro.getCod_legado());	
+		 pstmt.setString(9, registro.getId_fila_origen_legado());	
+		 pstmt.setDate(10, java.sql.Date.valueOf(java.time.LocalDate.now()));
+		 //pstmt.setString(10, p_FECHA_EXPORT);	
+		 pstmt.setString(11, registro.getId_cliente());	
+		 pstmt.setString(12, registro.getCod_calif_cliente());	
+		 pstmt.setString(13, registro.getEstado_registro());	
+		 pstmt.setString(14, registro.getFuente_informacion());	
+		 pstmt.setDate(15, java.sql.Date.valueOf(java.time.LocalDate.now()));
+		 pstmt.setDate(15, (Date) (registro.getFec_actualiz()));	
+		 pstmt.setInt(16, registro.getCod_tipo_ident());
+		 pstmt.setDate(17, java.sql.Date.valueOf(java.time.LocalDate.now()));
+		// pstmt.setString(17, p_FEC_CREACION);
+		 pstmt.executeUpdate();
+		
+	  }
+	   pstmt.close();
+	
+
+}
+}
+

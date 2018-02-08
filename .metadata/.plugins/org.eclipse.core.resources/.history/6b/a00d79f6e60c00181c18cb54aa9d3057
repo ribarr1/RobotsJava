@@ -1,0 +1,23 @@
+#username=ribarra
+#password=pericos2
+#host=10.32.14.198
+username=ctif_integracion
+password=1nt3gr4c10n
+host=10.130.9.56
+entidad=0102
+cantidadregistros=3
+#rutalinux=/home/ribarra/archivos/
+rutalinux=/ctiftecnico/ctif_integracion/inbox_planos/xProcesar/
+#Generacion de Archivos enviar s si se desea generar un archivo o n si no se desea
+clientesEntidades=s
+clientesCalificaciones=s
+clientesSituaciones=s
+contratosCalificaciones=s
+contratosDatosDinamicos=s
+contratosDiasMora=s
+contratos=s
+contratosReestructurados=s
+contratoTipoBienLeasing=s
+movCierreContable=s
+movTransaccionesInternas=s
+control=s
