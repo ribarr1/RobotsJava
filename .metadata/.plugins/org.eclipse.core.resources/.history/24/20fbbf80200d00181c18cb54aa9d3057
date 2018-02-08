@@ -22,7 +22,7 @@ public class App
     	//parametros.load(new FileInputStream(
          //"C:\\Users\\CarolinaLeal\\eclipse-workspace\\ctifcarga\\src\\main\\java\\com\\greensqa\\ctifcarga\\properties\\ParametrosIniciales.properties"));
     	parametros.load(new FileInputStream(
-           rutaarchivoparametro+"\\ParametrosIniciales.properties"));
+           "\""+rutaarchivoparametro+"\\ParametrosIniciales.properties\""));
     	String cantidadregistros = parametros.getProperty("cantidadregistros");
     	String entidad = parametros.getProperty("entidad");
     	String rutalinux = parametros.getProperty("rutalinux");

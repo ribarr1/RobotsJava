@@ -18,11 +18,10 @@ public class App
     	System.out.println();
     	
     	Properties parametros = new Properties();
-    	String rutaarchivoparametro = System.getProperty("user.dir");
-    	//parametros.load(new FileInputStream(
-         //"C:\\Users\\CarolinaLeal\\eclipse-workspace\\ctifcarga\\src\\main\\java\\com\\greensqa\\ctifcarga\\properties\\ParametrosIniciales.properties"));
     	parametros.load(new FileInputStream(
-           rutaarchivoparametro+"\\ParametrosIniciales.properties"));
+         "C:\\Users\\CarolinaLeal\\eclipse-workspace\\ctifcarga\\src\\main\\java\\com\\greensqa\\ctifcarga\\properties\\ParametrosIniciales.properties"));
+    	//parametros.load(new FileInputStream(
+        //   "\\ctifcarga\\ParametrosIniciales.properties"));
     	String cantidadregistros = parametros.getProperty("cantidadregistros");
     	String entidad = parametros.getProperty("entidad");
     	String rutalinux = parametros.getProperty("rutalinux");
@@ -111,8 +110,8 @@ public class App
     	
     	System.out.println();
     	System.out.println("Finalizando Generacion de Archivos de Datos Inbox");
-    	
-    	
+    	String a = System.getProperty("user.dir");
+    	System.out.println(a);
         
     }
 }
