@@ -4290,3 +4290,7 @@
 2018-02-08 10:44:50,991 [Worker-18432] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\CarolinaLeal\eclipse-workspace\ctifcarga\src\main\resources
 2018-02-08 10:44:50,993 [Worker-18432] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2018-02-08 10:44:50,994 [Worker-18432] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\CarolinaLeal\eclipse-workspace\ctifcarga\src\test\resources
+2018-02-08 11:36:31,784 [Worker-18544] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-02-08 11:36:31,784 [Worker-18544] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\CarolinaLeal\eclipse-workspace\ctifcarga\src\main\resources
+2018-02-08 11:36:31,786 [Worker-18544] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-02-08 11:36:31,786 [Worker-18544] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\CarolinaLeal\eclipse-workspace\ctifcarga\src\test\resources
